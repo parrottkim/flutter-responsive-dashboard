@@ -9,26 +9,24 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        if (!Responsive.isDesktop(context))
-          IconButton(
-            icon: Icon(Icons.menu),
-            onPressed:
-                Provider.of<MenuProvider>(context, listen: false).controlMenu,
-          ),
-        Text(
-          Provider.of<ScreenProvider>(context, listen: false).title,
-          style: TextStyle(
-            fontSize: 16.0,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        if (!Responsive.isMobile(context))
-          Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
-        Expanded(child: SizedBox()),
-        ProfileCard(),
-      ],
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Row(
+        children: [
+          if (!Responsive.isDesktop(context))
+            IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed:
+                  Provider.of<MenuProvider>(context, listen: false).controlMenu,
+            ),
+          Text(Provider.of<ScreenProvider>(context, listen: false).title,
+              style: Theme.of(context).textTheme.headline6),
+          if (!Responsive.isMobile(context))
+            Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
+          const Expanded(child: SizedBox()),
+          const ProfileCard(),
+        ],
+      ),
     );
   }
 }
@@ -40,25 +38,26 @@ class ProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
-      margin: EdgeInsets.only(left: 16.0),
-      padding: EdgeInsets.symmetric(
+      margin: const EdgeInsets.only(left: 16.0),
+      padding: const EdgeInsets.symmetric(
         horizontal: 16.0,
         vertical: 8.0,
       ),
       decoration: BoxDecoration(
         // color: secondaryColor,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
-        border: Border.all(color: Colors.white10),
+        border: Border.all(color: isDarkMode ? Colors.white10 : Colors.black12),
       ),
       child: Row(
         children: [
           Container(
             width: 34.0,
             height: 34.0,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              image: new DecorationImage(
+              image: DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage(
                   'assets/images/profile.jpg',
@@ -67,11 +66,11 @@ class ProfileCard extends StatelessWidget {
             ),
           ),
           if (!Responsive.isMobile(context))
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.0),
               child: Text('parrottkim21@gmail.com'),
             ),
-          Icon(Icons.keyboard_arrow_down),
+          const Icon(Icons.keyboard_arrow_down),
         ],
       ),
     );

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_dashboard/provider/theme_provider.dart';
-import 'package:provider/provider.dart';
 
 class MainLogo extends StatelessWidget {
   final Size size;
@@ -22,19 +20,13 @@ class MainLogo extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10.0),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'PARROTT KIM',
-                style: TextStyle(
-                  fontFamily: 'Bebas Neue',
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ],
+          Text(
+            'PARROTT KIM',
+            style: TextStyle(
+              fontFamily: 'Bebas Neue',
+              fontSize: 24.0,
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ],
       ),

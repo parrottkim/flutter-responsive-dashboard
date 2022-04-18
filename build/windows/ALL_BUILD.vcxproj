@@ -149,6 +149,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{27DEE99C-B662-383C-80D1-7DC3568B535F}</Project>
       <Name>flutter_wrapper_plugin</Name>
     </ProjectReference>
+    <ProjectReference Include="D:\Projects\Flutter\flutter_responsive_dashboard\build\windows\plugins\window_size\window_size_plugin.vcxproj">
+      <Project>{BAB231F0-5F4A-3BC1-9933-E3B4E7F5058E}</Project>
+      <Name>window_size_plugin</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

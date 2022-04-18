@@ -8,3 +8,6 @@ D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/flutter/CMakeFile
 D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/runner/CMakeFiles/flutter_responsive_admin.dir
 D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/runner/CMakeFiles/INSTALL.dir
 D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/runner/CMakeFiles/ALL_BUILD.dir
+D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/plugins/window_size/CMakeFiles/window_size_plugin.dir
+D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/plugins/window_size/CMakeFiles/INSTALL.dir
+D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/plugins/window_size/CMakeFiles/ALL_BUILD.dir

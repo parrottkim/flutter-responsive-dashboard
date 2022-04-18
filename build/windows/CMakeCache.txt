@@ -194,6 +194,15 @@ runner_BINARY_DIR:STATIC=D:/Projects/Flutter/flutter_responsive_dashboard/build/
 //Value Computed by CMake
 runner_SOURCE_DIR:STATIC=D:/Projects/Flutter/flutter_responsive_dashboard/windows/runner
 
+//Value Computed by CMake
+window_size_BINARY_DIR:STATIC=D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/plugins/window_size
+
+//Value Computed by CMake
+window_size_SOURCE_DIR:STATIC=D:/Projects/Flutter/flutter_responsive_dashboard/windows/flutter/ephemeral/.plugin_symlinks/window_size/windows
+
+//Dependencies for the target
+window_size_plugin_LIB_DEPENDS:STATIC=general;flutter_wrapper_plugin;
+
 
 ########################
 # INTERNAL cache entries
@@ -273,7 +282,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MT
 CMAKE_MT-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //noop for ranlib

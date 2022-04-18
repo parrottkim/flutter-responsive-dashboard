@@ -22,9 +22,7 @@ class MainScreen extends StatelessWidget {
                 width: 260.0,
                 child: SideMenu(),
               ),
-            Expanded(
-              child: HomeScreen(),
-            ),
+            Expanded(child: HomeScreen()),
           ],
         ),
       ),

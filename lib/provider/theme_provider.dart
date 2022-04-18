@@ -10,6 +10,7 @@ ThemeData light = ThemeData(
     backgroundColor: Colors.white,
   ).copyWith(
     primary: Colors.black,
+    secondary: Colors.indigo[200],
   ),
   textTheme: TextTheme().apply(
     bodyColor: Colors.grey[850],

@@ -302,6 +302,12 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "window_size",
+      "rootUri": "file:///D:/Projects/Flutter/flutter/.pub-cache/git/flutter-desktop-embedding-5c51870ced62a00e809ba4b81a846a052d241c9f/plugins/window_size",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "xdg_directories",
       "rootUri": "file:///D:/Projects/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/xdg_directories-0.2.0+1",
       "packageUri": "lib/",
@@ -320,7 +326,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-04-18T04:27:54.367223Z",
+  "generated": "2022-04-18T08:23:42.415018Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }

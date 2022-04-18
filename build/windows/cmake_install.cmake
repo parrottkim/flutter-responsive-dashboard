@@ -42,6 +42,11 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/runner/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/plugins/window_size/cmake_install.cmake")
+endif()
+
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
     list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
@@ -141,6 +146,40 @@ file(INSTALL DESTINATION "D:/Projects/Flutter/flutter_responsive_dashboard/build
         message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
     endif()
 file(INSTALL DESTINATION "D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/runner/Release" TYPE FILE FILES "D:/Projects/Flutter/flutter_responsive_dashboard/windows/flutter/ephemeral/flutter_windows.dll")
+  endif()
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xRuntimex" OR NOT CMAKE_INSTALL_COMPONENT)
+  if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
+    list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+     "D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/runner/Debug/window_size_plugin.dll")
+    if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+        message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+    endif()
+    if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+        message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+    endif()
+file(INSTALL DESTINATION "D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/runner/Debug" TYPE FILE FILES "D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/plugins/window_size/Debug/window_size_plugin.dll")
+  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Pp][Rr][Oo][Ff][Ii][Ll][Ee])$")
+    list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+     "D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/runner/Profile/window_size_plugin.dll")
+    if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+        message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+    endif()
+    if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+        message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+    endif()
+file(INSTALL DESTINATION "D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/runner/Profile" TYPE FILE FILES "D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/plugins/window_size/Profile/window_size_plugin.dll")
+  elseif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
+    list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+     "D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/runner/Release/window_size_plugin.dll")
+    if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+        message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+    endif()
+    if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+        message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+    endif()
+file(INSTALL DESTINATION "D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/runner/Release" TYPE FILE FILES "D:/Projects/Flutter/flutter_responsive_dashboard/build/windows/plugins/window_size/Release/window_size_plugin.dll")
   endif()
 endif()
 
