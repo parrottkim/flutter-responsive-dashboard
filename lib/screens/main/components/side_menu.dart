@@ -2,6 +2,7 @@ import 'package:flutter_responsive_dashboard/provider/screen_provider.dart';
 import 'package:flutter_responsive_dashboard/provider/theme_provider.dart';
 import 'package:flutter_responsive_dashboard/screens/dashboard/dashboard_screen.dart';
 import 'package:flutter_responsive_dashboard/screens/dashboard/first_screen.dart';
+import 'package:flutter_responsive_dashboard/screens/dashboard/gallery_screen.dart';
 import 'package:flutter_responsive_dashboard/screens/dashboard/second_screen.dart';
 import 'package:flutter_responsive_dashboard/screens/main/components/main_logo.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class SideMenu extends StatefulWidget {
 class _SideMenuState extends State<SideMenu> {
   int _currentIndex = 0;
 
-  final List<dynamic> _list = [
+  final List<dynamic> _drawerItems = [
     {
       'icon': 'assets/icons/dashboard.svg',
       'title': 'Dashboard',
@@ -39,7 +40,7 @@ class _SideMenuState extends State<SideMenu> {
     {
       'icon': 'assets/icons/image.svg',
       'title': 'Gallery',
-      'route': DashboardScreen(),
+      'route': GalleryScreen(),
     },
   ];
 
@@ -54,9 +55,9 @@ class _SideMenuState extends State<SideMenu> {
           ),
           ListView.builder(
             shrinkWrap: true,
-            itemCount: _list.length,
+            itemCount: _drawerItems.length,
             itemBuilder: (context, index) {
-              if (_list[index]['icon'] == null) {
+              if (_drawerItems[index]['icon'] == null) {
                 return const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
                   child: Divider(thickness: 0.3),
@@ -70,11 +71,11 @@ class _SideMenuState extends State<SideMenu> {
                     _currentIndex = index;
                   });
                   Provider.of<ScreenProvider>(context, listen: false)
-                      .changeScreen(
-                          _list[index]['title'], _list[index]['route']);
+                      .changeScreen(_drawerItems[index]['title'],
+                          _drawerItems[index]['route']);
                 },
                 leading: SvgPicture.asset(
-                  _list[index]['icon'],
+                  _drawerItems[index]['icon'],
                   width: 24.0,
                   height: 24.0,
                   semanticsLabel: 'Starcraft II',
@@ -87,7 +88,7 @@ class _SideMenuState extends State<SideMenu> {
                           : Colors.black54,
                 ),
                 title: Text(
-                  _list[index]['title'],
+                  _drawerItems[index]['title'],
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                   ),
@@ -101,6 +102,7 @@ class _SideMenuState extends State<SideMenu> {
               );
             },
           ),
+          Expanded(child: SizedBox.shrink()),
           Consumer<ThemeProvider>(
             builder: (context, value, child) => SwitchListTile(
               title: Text("Dark Mode"),

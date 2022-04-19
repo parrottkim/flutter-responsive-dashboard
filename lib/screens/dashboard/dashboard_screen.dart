@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_dashboard/responsive.dart';
+import 'package:flutter_responsive_dashboard/screens/dashboard/components/map_list.dart';
 import 'package:flutter_responsive_dashboard/screens/dashboard/components/overview.dart';
+import 'package:flutter_responsive_dashboard/screens/dashboard/components/recent.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -11,32 +13,26 @@ class DashboardScreen extends StatelessWidget {
       child: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
         controller: ScrollController(),
-        child: Row(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              flex: 5,
-              child: Column(
-                children: [
-                  OverviewWidget(),
-                  if (Responsive.isMobile(context)) SizedBox(height: 16.0),
-                  if (Responsive.isMobile(context))
-                    Container(
-                      color: Colors.red,
-                      height: 1500.0,
-                    ),
-                ],
-              ),
-            ),
-            if (!Responsive.isMobile(context)) SizedBox(width: 16.0),
+            RecentArticles(),
+            SizedBox(height: 16.0),
+            OverviewArticles(),
+            SizedBox(height: 16.0),
+            if (Responsive.isMobile(context)) MapList(),
             if (!Responsive.isMobile(context))
-              Expanded(
-                flex: 2,
-                child: Container(
-                  color: Colors.red,
-                  width: double.infinity,
-                  height: 1500.0,
-                ),
+              Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: MapList(),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: SizedBox.shrink(),
+                  ),
+                ],
               ),
           ],
         ),
