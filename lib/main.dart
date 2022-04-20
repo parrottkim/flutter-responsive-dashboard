@@ -15,7 +15,7 @@ void main() {
   try {
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
       setWindowTitle('Flutter Responsive Dashboard');
-      setWindowMinSize(const Size(600.0, 600.0));
+      setWindowMinSize(const Size(400.0, 600.0));
 
       runApp(const MyApp());
     }

@@ -23,9 +23,10 @@ class OverviewArticles extends StatelessWidget {
           ),
         ),
         Responsive(
-          mobile: OverviewCardGridView(crossAxisCount: 2),
+          mobile:
+              OverviewCardGridView(crossAxisCount: _size.width < 700 ? 1 : 2),
           tablet:
-              OverviewCardGridView(crossAxisCount: _size.width < 900 ? 2 : 4),
+              OverviewCardGridView(crossAxisCount: _size.width < 1100 ? 2 : 4),
           desktop: OverviewCardGridView(),
         ),
       ],
@@ -105,11 +106,15 @@ class OverviewCard extends StatelessWidget {
                 info.title!,
                 maxLines: 1,
                 overflow: TextOverflow.fade,
-                style: Theme.of(context).textTheme.titleSmall,
+                style: TextStyle(fontWeight: FontWeight.w400),
               ),
               Text(
                 "${info.number} Files",
-                style: Theme.of(context).textTheme.subtitle1!,
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.7),
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ],
           ),

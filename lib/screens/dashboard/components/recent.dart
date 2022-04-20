@@ -73,7 +73,7 @@ class _RecentArticlesState extends State<RecentArticles> {
         Responsive(
           mobile: RecentListView(
               items: _items,
-              width: _size.width / 4,
+              width: _size.width < 600 ? _size.width / 2.5 : _size.width / 4,
               selectedValue: _selectedValue),
           tablet: RecentListView(
               items: _items,
@@ -81,7 +81,7 @@ class _RecentArticlesState extends State<RecentArticles> {
               selectedValue: _selectedValue),
           desktop: RecentListView(
               items: _items,
-              width: _size.width / 8,
+              width: _size.width < 1400 ? _size.width / 6 : _size.width / 10,
               selectedValue: _selectedValue),
         ),
       ],
