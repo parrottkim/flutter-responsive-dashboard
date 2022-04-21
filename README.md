@@ -4,6 +4,9 @@
 Responsive app created with Flutter.
 Support Desktop & Web both.
 
+## Features
+- Provider (including theme provider)
+
 ## [LIVE DEMO](https://flutter-responsive-dashb-6b370.web.app/#/)
 |Desktop & Web View|Mobile View|
 |------|---|
