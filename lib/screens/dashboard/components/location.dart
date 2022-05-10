@@ -11,16 +11,12 @@ class CompanyLocation extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Text(
-            'Company Location',
-            style: Theme.of(context)
-                .textTheme
-                .subtitle1!
-                .apply(fontWeightDelta: 1),
-          ),
+        Text(
+          'Company Location',
+          style:
+              Theme.of(context).textTheme.subtitle1!.apply(fontWeightDelta: 1),
         ),
+        SizedBox(height: 8.0),
         MapWidget(),
       ],
     );
@@ -34,8 +30,20 @@ class MapWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
-      margin: const EdgeInsets.all(8.0),
       height: 500.0,
+      margin: EdgeInsets.all(4.0),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.3),
+            spreadRadius: 1,
+            blurRadius: 1,
+            offset: const Offset(0.0, 1.8),
+            blurStyle: BlurStyle.inner,
+          ),
+        ],
+        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+      ),
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(10.0)),
         child: FlutterMap(

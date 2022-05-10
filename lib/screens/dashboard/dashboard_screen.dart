@@ -12,7 +12,7 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(24.0),
         controller: ScrollController(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,7 +29,7 @@ class DashboardScreen extends StatelessWidget {
                     flex: 2,
                     child: ReleaseStatus(),
                   ),
-                  SizedBox(height: 16.0),
+                  SizedBox(width: 16.0),
                   Expanded(
                     flex: 1,
                     child: CompanyLocation(),

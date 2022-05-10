@@ -35,41 +35,42 @@ class _RecentArticlesState extends State<RecentArticles> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Recent Articles',
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1!
-                    .apply(fontWeightDelta: 1),
-              ),
-              DropdownButton<String>(
-                value: _selectedValue,
-                isDense: true,
-                icon: Icon(Icons.arrow_drop_down),
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                underline: SizedBox.shrink(),
-                onChanged: (String? value) {
-                  setState(() {
-                    _selectedValue = value!;
-                  });
-                  _filteringList();
-                },
-                items: <String>['Starcraft: Brood War', 'Starcraft II']
-                    .map<DropdownMenuItem<String>>((value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
-            ],
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Recent Articles',
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle1!
+                  .apply(fontWeightDelta: 1),
+            ),
+            DropdownButton<String>(
+              value: _selectedValue,
+              isDense: true,
+              icon: Icon(Icons.arrow_drop_down),
+              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              underline: SizedBox.shrink(),
+              onChanged: (String? value) {
+                setState(() {
+                  _selectedValue = value!;
+                });
+                _filteringList();
+              },
+              items: <String>['Starcraft: Brood War', 'Starcraft II']
+                  .map<DropdownMenuItem<String>>((value) =>
+                      DropdownMenuItem<String>(
+                        value: value,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Text(value),
+                        ),
+                      ))
+                  .toList(),
+            ),
+          ],
         ),
+        SizedBox(height: 8.0),
         Responsive(
           mobile: RecentListView(
               items: _items,
@@ -106,13 +107,13 @@ class RecentListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: height,
-      child: ListView.builder(
+      child: ListView.separated(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemCount: items.length,
-        itemBuilder: (context, index) {
-          return RecentCard(info: items[index], width: width, height: height);
-        },
+        itemBuilder: (context, index) =>
+            RecentCard(info: items[index], width: width, height: height),
+        separatorBuilder: (context, index) => SizedBox(width: 8.0),
       ),
     );
   }
@@ -134,25 +135,17 @@ class RecentCard extends StatelessWidget {
     return Stack(
       alignment: Alignment.bottomRight,
       children: [
-        Container(
-          margin: EdgeInsets.all(8.0),
-          width: width,
-          height: height,
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                spreadRadius: 2,
-                blurRadius: 3,
-                offset: const Offset(0, 0),
-              ),
-            ],
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+        Card(
+          elevation: 2.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
             child: Image.asset(
               info.src!,
+              width: width,
+              height: height,
               fit: BoxFit.fitHeight,
             ),
           ),

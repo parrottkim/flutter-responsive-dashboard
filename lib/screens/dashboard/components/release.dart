@@ -11,16 +11,12 @@ class ReleaseStatus extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Text(
-            'Release Status',
-            style: Theme.of(context)
-                .textTheme
-                .subtitle1!
-                .apply(fontWeightDelta: 1),
-          ),
+        Text(
+          'Release Status',
+          style:
+              Theme.of(context).textTheme.subtitle1!.apply(fontWeightDelta: 1),
         ),
+        SizedBox(height: 8.0),
         const ReleaseStatusList(),
       ],
     );
@@ -33,22 +29,13 @@ class ReleaseStatusList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return Container(
-      margin: const EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        color: isDarkMode ? Colors.blueGrey[700] : Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            spreadRadius: 2,
-            blurRadius: 3,
-            offset: const Offset(0, 0),
-          ),
-        ],
-        borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-      ),
-      child: SizedBox(
-        height: 500.0,
+    return SizedBox(
+      height: 500.0,
+      child: Card(
+        elevation: 2.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         child: ListView.separated(
           shrinkWrap: true,
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
